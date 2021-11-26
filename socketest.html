@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Provider</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Provider</h1>
+    <button onclick="accept()">Sim</button>
+    <button onclick="reject()">Não</button>
+  </body>
+  <script>
+    const s = io('http://localhost:3339', {
+      transports: ['websocket', 'polling'],
+    });
+
+    let soliticationResponse = {};
+
+    s.on('connection', e => {
+      console.log('connected', e);
+    });
+
+    s.on('user_notifications', e => {
+      console.log(e);
+      soliticationResponse = e;
+    });
+
+    function accept() {
+      console.log('Trabalho aceito');
+      s.emit('service_solicitation_response', {
+        provider_id: soliticationResponse.provider_id,
+        response: 'accepted',
+        service_id: soliticationResponse.service_id,
+      });
+    }
+
+    function reject() {
+      console.log('Trabalho recusado');
+      s.emit('service_solicitation_response', {
+        provider_id: soliticationResponse.provider_id,
+        response: 'declined',
+        service_id: soliticationResponse.service_id,
+      });
+    }
+  </script>
+</html>

@@ -5,7 +5,7 @@ import Product from '@modules/products/infra/typeorm/entities/Product';
 
 import productsList from '../helpers/productsList';
 
-export default class CreateAnimals implements Seeder {
+export default class CreateProducts implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<void> {
     await connection
       .createQueryBuilder()

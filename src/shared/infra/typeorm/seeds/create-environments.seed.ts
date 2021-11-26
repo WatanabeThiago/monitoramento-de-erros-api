@@ -5,7 +5,7 @@ import Environment from '@modules/products/infra/typeorm/entities/Environment';
 
 import environmentsList from '../helpers/environmentsList';
 
-export default class CreateAnimals implements Seeder {
+export default class CreateEnvironment implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<void> {
     await connection
       .createQueryBuilder()

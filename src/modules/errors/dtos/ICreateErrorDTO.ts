@@ -8,4 +8,9 @@ export default interface ICreateErrorDTO {
   query?: string;
   headers?: string;
   user?: string;
+  url: string;
+  code: number;
+  method: string;
+  stack: string;
+  name: string;
 }

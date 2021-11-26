@@ -20,6 +20,7 @@ class ErrorsRepository implements IErrorsRepository {
     const [results, total] = await this.ormRepository.findAndCount({
       where,
       order,
+      relations: ['product', 'environment'],
     });
     return {
       limit: data.limit,

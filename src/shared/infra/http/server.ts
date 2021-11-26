@@ -5,7 +5,6 @@ import 'dotenv/config';
 import express, { request } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
-import uploadConfig from '@config/upload';
 import http from 'http';
 import routes from './routes';
 
@@ -21,10 +20,9 @@ const appSocketServer = socketIO(server, request);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
 
-// app.use(globalErrorHandling);
+app.use(globalErrorHandling);
 
 server.listen(process.env.PORT || 3337, async () => {
   /* eslint-disable no-console */

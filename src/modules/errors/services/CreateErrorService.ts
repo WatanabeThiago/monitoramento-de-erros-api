@@ -14,6 +14,8 @@ class CreateErrorService {
 
   public async execute(data: ICreateErrorDTO): Promise<Error> {
     const error = this.errorsRepository.create(data);
+    await this.errorsRepository.save(error);
+    console.log({ error });
     appSocketServer.emit('errors', error);
     return error;
   }

@@ -9,7 +9,7 @@ import uploadConfig from '@config/upload';
 import http from 'http';
 import routes from './routes';
 
-// import '@shared/infra/typeorm';
+import '@shared/infra/typeorm';
 import '@shared/container';
 import socketIO from '../socketIO';
 import globalErrorHandling from './middlewares/globalErrorHandling';
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
 
-app.use(globalErrorHandling);
+// app.use(globalErrorHandling);
 
 server.listen(process.env.PORT || 3337, async () => {
   /* eslint-disable no-console */

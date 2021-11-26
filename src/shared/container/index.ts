@@ -1,23 +1,23 @@
 import { container } from 'tsyringe';
 
 import IProductsRepository from '@modules/products/repositories/IProductsRepository';
-import FakeProductsRepository from '@modules/products/repositories/fakes/FakeProductsRepository';
 import IEnvironmentsRepository from '@modules/products/repositories/IEnvironmentsRepository';
-import FakeEnvironmentsRepository from '@modules/products/repositories/fakes/FakeEnvironmentsRepository';
 import IErrorsRepository from '@modules/errors/repositories/IErrorsRepository';
-import FakeErrorsRepository from '@modules/errors/repositories/fakes/FakeErrorsRepository';
+import ProductsRepository from '@modules/products/infra/typeorm/repositories/ProductsRepository';
+import ErrorsRepository from '@modules/errors/infra/typeorm/repositories/ErrorsRepository';
+import EnvironmentsRepository from '@modules/products/infra/typeorm/repositories/EnvironmentsRepository';
 
 container.registerSingleton<IProductsRepository>(
   'ProductsRepository',
-  FakeProductsRepository,
+  ProductsRepository,
 );
 
 container.registerSingleton<IEnvironmentsRepository>(
   'EnvironmentsRepository',
-  FakeEnvironmentsRepository,
+  EnvironmentsRepository,
 );
 
 container.registerSingleton<IErrorsRepository>(
   'ErrorsRepository',
-  FakeErrorsRepository,
+  ErrorsRepository,
 );

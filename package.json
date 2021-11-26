@@ -9,7 +9,7 @@
     "dev:server": "ts-node-dev --inspect -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
     "typesense": "docker start PandorisTypesense",
     "docker:typesense": "sudo docker run -p 8108:8108 -v/tmp/typesense-data:/data typesense/typesense:0.21.0   --data-dir /data --api-key=ade38da678772cb713c3a44d564d86c1",
-    "start": "pm2 start  dist/shared/infra/http/server.js --name=pandoris-api",
+    "start": "node dist/shared/infra/http/server.js",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migrate": "typeorm migration:create -n",
     "test": "jest --setupFiles dotenv/config",

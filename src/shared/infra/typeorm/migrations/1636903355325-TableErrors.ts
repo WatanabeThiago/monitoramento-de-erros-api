@@ -67,6 +67,6 @@ export default class TableErrors1637903355325 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('products');
+    await queryRunner.dropTable('errors');
   }
 }

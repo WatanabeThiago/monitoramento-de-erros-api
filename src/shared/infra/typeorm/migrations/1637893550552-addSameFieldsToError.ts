@@ -4,7 +4,6 @@ export default class addSameFieldsToError1637893550552
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.
     await queryRunner.addColumns('errors', [
       new TableColumn({
         name: 'name ',

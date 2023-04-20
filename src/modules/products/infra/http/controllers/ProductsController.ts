@@ -3,7 +3,7 @@ import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
 import IndexProductsService from '../../../services/IndexProductsService';
-import CreateProductService from '../../../services/CreateProductService';
+import CreateProductService from '../../../services/CreateUserService';
 import UpdateProductService from '../../../services/UpdateProductService';
 import DeleteProductService from '../../../services/DeleteProductService';
 
@@ -11,11 +11,9 @@ export default class ProductsController {
   public async create(req: Request, res: Response): Promise<Response> {
     const createProductService = container.resolve(CreateProductService);
 
-    const { name } = req.body;
+    const user = await createProductService.execute(req.body);
 
-    const product = await createProductService.execute({ name });
-
-    return res.status(201).json(classToClass(product));
+    return res.status(201).json(classToClass(user));
   }
 
   public async update(req: Request, res: Response): Promise<Response> {

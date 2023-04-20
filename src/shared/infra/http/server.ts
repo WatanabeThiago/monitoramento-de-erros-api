@@ -8,7 +8,7 @@ import 'express-async-errors';
 import http from 'http';
 import routes from './routes';
 
-import '@shared/infra/typeorm';
+// import '@shared/infra/typeorm';
 import '@shared/container';
 import socketIO from '../socketIO';
 import globalErrorHandling from './middlewares/globalErrorHandling';

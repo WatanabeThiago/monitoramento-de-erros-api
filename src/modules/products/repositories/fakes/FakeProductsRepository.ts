@@ -1,7 +1,7 @@
-import IProductsRepository from '../IProductsRepository';
-import ICreateProductDTO from '../../dtos/ICreateProductDTO';
+import IProductsRepository from '../IUsersRepository';
+import ICreateProductDTO from '../../dtos/ICreateUserDTO';
 
-import Product from '../../infra/typeorm/entities/Product';
+import Product from '../../infra/typeorm/entities/User';
 
 class FakeProductsRepository implements IProductsRepository {
   private products: Product[] = [

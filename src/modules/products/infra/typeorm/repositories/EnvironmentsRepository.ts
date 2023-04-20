@@ -1,9 +1,9 @@
 import { getRepository, Repository } from 'typeorm';
 
 import IEnvironmentsRepository from '../../../repositories/IEnvironmentsRepository';
-import ICreateProductDTO from '../../../dtos/ICreateProductDTO';
+import ICreateProductDTO from '../../../dtos/ICreateUserDTO';
 
-import Product from '../entities/Product';
+import Product from '../entities/User';
 
 class EnvironmentsRepository implements IEnvironmentsRepository {
   private ormRepository: Repository<Product>;

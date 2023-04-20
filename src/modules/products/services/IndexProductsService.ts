@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
-import IProductsRepository from '../repositories/IProductsRepository';
-import Product from '../infra/typeorm/entities/Product';
+import IProductsRepository from '../repositories/IUsersRepository';
+import Product from '../infra/typeorm/entities/User';
 
 @injectable()
 class IndexProductsService {

@@ -1,5 +1,5 @@
 import Environment from '@modules/products/infra/typeorm/entities/Environment';
-import Product from '@modules/products/infra/typeorm/entities/Product';
+import Product from '@modules/products/infra/typeorm/entities/User';
 import {
   Entity,
   Column,

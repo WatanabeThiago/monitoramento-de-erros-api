@@ -1,7 +1,7 @@
 import IEnvironmentsRepository from '../IEnvironmentsRepository';
-import ICreateProductDTO from '../../dtos/ICreateProductDTO';
+import ICreateProductDTO from '../../dtos/ICreateUserDTO';
 
-import Product from '../../infra/typeorm/entities/Product';
+import Product from '../../infra/typeorm/entities/User';
 
 class FakeEnvironmentsRepository implements IEnvironmentsRepository {
   private products: Product[] = [
